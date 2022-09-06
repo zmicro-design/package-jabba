@@ -14,12 +14,22 @@ core() {
 
   log::info "installing jabba ..."
 
-  local JABBA_HOME="$HOME/.jabba"
-  [ -s "$JABBA_HOME/jabba.sh" ] && source "$JABBA_HOME/jabba.sh"
+  # local JABBA_HOME="$HOME/.jabba"
+  # local JABBA_ENV="$JABBA_HOME/jabba.sh"
+  # if [ -s "$JABBA_ENV" ]; then
+  #   # log::info "loading jabba ..."
+  #   . $JABBA_ENV
+  # fi
 
-  which jabba >>/dev/null 2>&1
+  # log::info "hhhh: $JABBA_ENV"
+
+  export JABBA_HOME="$HOME/.jabba"
+  export JABBA_SHELL_INTEGRATION=ON
+  export PATH=$JABBA_HOME/bin:$PATH
+
+  command -v jabba >>/dev/null 2>&1
   if [ "$?" != "0" ]; then
-    curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . $HOME/.jabba/jabba.sh
+    curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . $JABBA_ENV
   fi
 
   log::success "install jabba success."
