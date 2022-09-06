@@ -1,0 +1,29 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro package install jabba <args...>"
+  echo ""
+}
+
+core() {
+  if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    help
+    exit 0
+  fi
+
+  log::info "installing jabba ..."
+
+  which jabba >>/dev/null 2>&1
+  if [ "$?" != "0" ]; then
+    curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
+  fi
+
+  log::success "install jabba success."
+}
+
+run() {
+  core $@
+}
+
+run $@

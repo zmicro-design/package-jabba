@@ -1,0 +1,19 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro jabba <args ...>"
+  echo ""
+}
+
+core() {
+  source $HOME/.jabba/jabba.sh
+
+  jabba "$@"
+}
+
+run() {
+  core "$@"
+}
+
+run "$@"
