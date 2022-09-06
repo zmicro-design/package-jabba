@@ -7,6 +7,8 @@ help() {
 }
 
 core() {
+  # [ -s "$JABBA_HOME/jabba.sh" ] && source "$JABBA_HOME/jabba.sh"
+
   export JABBA_HOME="$HOME/.jabba"
   export JABBA_SHELL_INTEGRATION=ON
   export PATH=$JABBA_HOME/bin:$PATH

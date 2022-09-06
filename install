@@ -14,16 +14,10 @@ core() {
 
   log::info "installing jabba ..."
 
-  # local JABBA_HOME="$HOME/.jabba"
-  # local JABBA_ENV="$JABBA_HOME/jabba.sh"
-  # if [ -s "$JABBA_ENV" ]; then
-  #   # log::info "loading jabba ..."
-  #   . $JABBA_ENV
-  # fi
-
-  # log::info "hhhh: $JABBA_ENV"
+  #  [ -s "$JABBA_HOME/jabba.sh" ] && source "$JABBA_HOME/jabba.sh"
 
   export JABBA_HOME="$HOME/.jabba"
+  export JABBA_ENV="$JABBA_HOME/jabba.sh"
   export JABBA_SHELL_INTEGRATION=ON
   export PATH=$JABBA_HOME/bin:$PATH
 
