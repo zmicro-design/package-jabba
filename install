@@ -23,7 +23,7 @@ core() {
 
   command -v jabba >>/dev/null 2>&1
   if [ "$?" != "0" ]; then
-    curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . $JABBA_ENV
+    curl -fSL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . $JABBA_ENV
   fi
 
   log::success "install jabba success."
